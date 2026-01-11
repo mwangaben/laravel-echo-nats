@@ -1,10 +1,20 @@
-# @mwangaben/nats-echo-js
+# Laravel Echo NATS Connector
 
-NATS connector for Laravel Echo with full API compatibility. Use NATS as your real-time backend with the same API as Pusher.
+A NATS WebSocket connector for Laravel Echo with full API compliance.
+
+## Features
+
+- ✅ 100% Laravel Echo API compatibility
+- ✅ NATS WebSocket protocol support
+- ✅ Automatic reconnection with exponential backoff
+- ✅ Private and Presence channel support
+- ✅ Namespace handling for Laravel events
+- ✅ CSRF token auto-detection
+- ✅ TypeScript support with full type definitions
 
 ## Installation
 
 ```bash
-npm install laravel-echo-nats nats.ws
+npm install laravel-echo-nats laravel-echo
 # or
-yarn add laravel-echo-nats nats.ws
+yarn add laravel-echo-nats laravel-echo

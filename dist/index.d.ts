@@ -1,9 +1,10 @@
 import { NatsConnector } from './connector';
-import { Channel, PrivateChannel, EncryptedPrivateChannel, PresenceChannel } from './channel';
-import { NatsEchoOptions } from './types';
-declare const NatsBroadcaster: {
-    install(echo: any, options?: NatsEchoOptions): any;
-};
-export { NatsConnector, NatsBroadcaster, Channel, PrivateChannel, EncryptedPrivateChannel, PresenceChannel };
-export type { NatsEchoOptions };
+import { Channel, PrivateChannel, EncryptedPrivateChannel } from './channel';
+import { PresenceChannel } from './presence-channel';
+import { NatsEventFormatter } from './event-formatter';
+import { NatsEchoOptions, Connector } from './types';
+declare const NatsBroadcaster: any;
+export declare const createNatsEcho: (options?: NatsEchoOptions) => Connector;
+export { NatsConnector, NatsBroadcaster, Channel, PrivateChannel, EncryptedPrivateChannel, PresenceChannel, NatsEventFormatter };
+export type { NatsEchoOptions, Connector };
 export default NatsBroadcaster;

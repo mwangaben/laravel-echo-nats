@@ -1,30 +1,36 @@
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
+import json from '@rollup/plugin-json';
 import typescript from '@rollup/plugin-typescript';
-import { terser } from 'rollup-plugin-terser';
 
 export default {
     input: 'src/index.ts',
     output: [
         {
-            file: 'dist/nats-echo.js',
-            format: 'umd',
-            name: 'NatsEcho',
-            globals: {
-                'nats.ws': 'nats',
-                'laravel-echo': 'Echo'
-            }
+            file: 'dist/index.js',
+            format: 'cjs',
+            exports: 'named',
+            sourcemap: true
         },
         {
-            file: 'dist/nats-echo.esm.js',
-            format: 'esm'
+            file: 'dist/index.esm.js',
+            format: 'esm',
+            exports: 'named',
+            sourcemap: true
         }
     ],
     plugins: [
-        resolve(),
+        resolve({
+            browser: true
+        }),
         commonjs(),
-        typescript({ tsconfig: './tsconfig.json' }),
-        terser()
+        json(),
+        typescript({
+            tsconfig: './tsconfig.json',
+            declaration: true,
+            declarationDir: 'dist',
+            rootDir: './src'
+        })
     ],
-    external: ['nats.ws', 'laravel-echo']
+    external: ['axios']
 };

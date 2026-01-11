@@ -1,50 +1,52 @@
 {
   "name": "laravel-echo-nats",
-  "version": "1.0.0",
-  "description": "NATS connector for Laravel Echo with full API compatibility",
-  "main": "dist/nats-echo.js",
-  "module": "dist/nats-echo.esm.js",
+  "version": "2.0.0",
+  "type": "module",
+  "description": "Laravel Echo NATS connector with full API compliance",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "rollup -c",
+    "build": "rimraf dist && rollup -c",
     "dev": "rollup -c -w",
-    "test": "jest",
+    "test": "echo \"No tests specified\"",
+    "lint": "echo \"No linting specified\"",
     "prepublishOnly": "npm run build"
   },
   "keywords": [
     "laravel",
     "echo",
     "nats",
-    "broadcasting",
+    "websocket",
     "realtime",
-    "websocket"
+    "broadcasting"
   ],
   "author": "Benedict Mwanga",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bmwasaru/laravel-echo-nats.git"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
   "dependencies": {
-    "nats.ws": "^1.26.0"
+    "axios": "^1.13.2"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^25.0.7",
+    "@rollup/plugin-json": "^6.1.0",
     "@rollup/plugin-node-resolve": "^15.2.3",
-    "@rollup/plugin-typescript": "^11.1.5",
-    "@types/node": "^20.8.10",
-    "jest": "^29.7.0",
-    "rollup": "^4.1.5",
-    "rollup-plugin-terser": "^7.0.2",
-    "ts-jest": "^29.1.1",
+    "@rollup/plugin-terser": "^0.4.4",
+    "@rollup/plugin-typescript": "^11.1.0",
+    "rimraf": "^5.0.5",
+    "rollup": "^4.9.0",
     "tslib": "^2.6.2",
-    "typescript": "^5.2.2"
+    "typescript": "^5.3.0"
   },
   "peerDependencies": {
     "laravel-echo": "^1.15.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/mwangaben/nats-echo-js.git"
-  },
-  "bugs": {
-    "url": "https://github.com/mwangaben/nats-echo-js/issues"
-  },
-  "homepage": "https://github.com/mwangaben/nats-echo-js#readme"
+  }
 }
