@@ -1,13 +1,14 @@
 {
   "name": "laravel-echo-nats",
   "version": "1.0.0",
-  "description": "NATS connector for Laravel Echo",
-  "main": "dist/index.js",
-  "module": "dist/index.esm.js",
+  "description": "NATS connector for Laravel Echo with full API compatibility",
+  "main": "dist/nats-echo.js",
+  "module": "dist/nats-echo.esm.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",
+    "test": "jest",
     "prepublishOnly": "npm run build"
   },
   "keywords": [
@@ -15,23 +16,35 @@
     "echo",
     "nats",
     "broadcasting",
-    "websocket",
-    "realtime"
+    "realtime",
+    "websocket"
   ],
   "author": "Benedict Mwanga",
   "license": "MIT",
-  "peerDependencies": {
-    "laravel-echo": "^1.11.0"
-  },
   "dependencies": {
-    "nats.ws": "^1.23.0"
+    "nats.ws": "^1.26.0"
   },
   "devDependencies": {
-    "@rollup/plugin-commonjs": "^25.0.0",
-    "@rollup/plugin-node-resolve": "^15.0.0",
-    "@rollup/plugin-typescript": "^11.0.0",
-    "rollup": "^3.0.0",
-    "rollup-plugin-terser": "^7.0.0",
-    "typescript": "^5.0.0"
-  }
+    "@rollup/plugin-commonjs": "^25.0.7",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-typescript": "^11.1.5",
+    "@types/node": "^20.8.10",
+    "jest": "^29.7.0",
+    "rollup": "^4.1.5",
+    "rollup-plugin-terser": "^7.0.2",
+    "ts-jest": "^29.1.1",
+    "tslib": "^2.6.2",
+    "typescript": "^5.2.2"
+  },
+  "peerDependencies": {
+    "laravel-echo": "^1.15.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mwangaben/nats-echo-js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mwangaben/nats-echo-js/issues"
+  },
+  "homepage": "https://github.com/mwangaben/nats-echo-js#readme"
 }

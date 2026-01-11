@@ -1,0 +1,32 @@
+import { NatsEchoOptions, Connector } from './types';
+import { Channel, PrivateChannel, EncryptedPrivateChannel, PresenceChannel } from './channel';
+export declare class NatsConnector implements Connector {
+    private options;
+    private natsConnection;
+    private jsonCodec;
+    private subscriptions;
+    private eventCallbacks;
+    private readonly currentSocketId;
+    private reconnectAttempts;
+    private maxReconnectAttempts;
+    private isConnecting;
+    private connectionPromise;
+    constructor(options?: NatsEchoOptions);
+    private generateSocketId;
+    connect(): Promise<void>;
+    private establishConnection;
+    private setupConnectionEvents;
+    private resubscribeAll;
+    private subscribeToSubject;
+    private getSubjectFromChannel;
+    private handleIncomingMessage;
+    listen(channel: string, event: string, callback: Function): void;
+    channel(name: string): Channel;
+    privateChannel(name: string): PrivateChannel;
+    encryptedPrivateChannel(name: string): EncryptedPrivateChannel;
+    join(name: string): PresenceChannel;
+    leave(channel: string): void;
+    socketId(): string;
+    disconnect(): void;
+    private cleanup;
+}
